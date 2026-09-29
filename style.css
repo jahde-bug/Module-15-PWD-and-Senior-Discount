@@ -1,0 +1,335 @@
+/* ==========================================
+   1. Root Variables & Reset Settings
+   ========================================== */
+:root {
+  --bg: #ffffff;
+  --card: #ffffff;
+  --ink: #1a1a1a;
+  --mute: #6b7280;
+  --line: #d9dde3;
+  --red: #d90429;
+  --blk: #000000;
+  --sel: #f7f7f8;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.45 system-ui, Arial, sans-serif;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px 14px 40px;
+  display: grid;
+  gap: 16px;
+}
+
+/* ==========================================
+   2. Header Banner & Cards
+   ========================================== */
+/* White header with a red line on the side */
+.top {
+  background: var(--card);
+  color: var(--ink);
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--red);
+}
+
+.top h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.top p {
+  margin: 6px 0 0;
+  color: var(--mute);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 16px;
+}
+
+/* Black section header with a red line below */
+h2 {
+  margin: -16px -16px 14px;
+  padding: 12px 16px;
+  font-size: 17px;
+  background: var(--blk);
+  color: #ffffff;
+  border-bottom: 3px solid var(--red);
+}
+
+h3 {
+  margin: 18px 0 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--red);
+}
+
+h2 + h3 {
+  margin-top: 0;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   3. Item Catalog
+   ========================================== */
+.items {
+  display: grid;
+  gap: 8px;
+}
+
+.it {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  padding: 9px 12px;
+}
+
+.it small {
+  color: var(--mute);
+  display: block;
+}
+
+.it button {
+  background: var(--blk);
+  color: #ffffff;
+  border: 0;
+  padding: 7px 12px;
+  font-weight: 600;
+}
+
+.pill {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  background: var(--red);
+  color: #ffffff;
+}
+
+.pill.n {
+  background: var(--line);
+  color: var(--ink);
+}
+
+/* ==========================================
+   4. Customer Form
+   ========================================== */
+.seg {
+  display: inline-flex;
+  border: 2px solid var(--blk);
+  margin-bottom: 12px;
+}
+
+.seg button {
+  border: 0;
+  background: var(--card);
+  color: var(--ink);
+  padding: 8px 18px;
+  font-weight: 600;
+}
+
+.seg button.on {
+  background: var(--red);
+  color: #ffffff;
+}
+
+.fields {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .fields {
+    grid-template-columns: 1.1fr 1.2fr 1fr;
+  }
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+input {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+}
+
+input:focus,
+input.bad {
+  border-color: var(--red);
+}
+
+/* System-generated reference number (read-only) */
+.refrow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.refin {
+  flex: 0 1 280px;
+  background: var(--sel);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+.btn {
+  background: var(--red);
+  color: #ffffff;
+  border: 0;
+  padding: 9px 18px;
+  font-weight: 700;
+}
+
+.note {
+  margin: 8px 0 0;
+  color: var(--mute);
+  font-size: 13px;
+}
+
+.note.err {
+  color: var(--red);
+}
+
+/* ==========================================
+   5. Toggle Switch
+   ========================================== */
+.gate {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 2px solid var(--blk);
+  padding: 12px;
+}
+
+.gate small {
+  display: block;
+  color: var(--mute);
+}
+
+.tg {
+  flex: none;
+  width: 52px;
+  height: 28px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--sel);
+  position: relative;
+  padding: 0;
+}
+
+.tg::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--mute);
+  transition: 0.15s;
+}
+
+.tg[aria-checked="true"] {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.tg[aria-checked="true"]::after {
+  left: 27px;
+  background: #ffffff;
+}
+
+/* ==========================================
+   6. Process Steps & Receipt Display
+   ========================================== */
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+ol li {
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--red);
+  padding: 7px 10px;
+  font-size: 14px;
+  background: var(--sel);
+}
+
+ol li.off {
+  border-left-color: var(--line);
+  opacity: 0.5;
+}
+
+.receipt {
+  margin-top: 14px;
+  font: 14px/1.7 ui-monospace, Menlo, Consolas, monospace;
+  border: 1px dashed var(--ink);
+  padding: 14px;
+}
+
+.receipt .r {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.receipt hr {
+  border: 0;
+  border-top: 1px dashed var(--ink);
+  margin: 8px 0;
+}
+
+.receipt .d {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.receipt .t {
+  font-weight: 700;
+  font-size: 17px;
+}

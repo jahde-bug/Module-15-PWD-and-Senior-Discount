@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Module 15: PWDs, Senior Citizen Discount</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header Banner -->
+    <div class="top">
+      <h1>PWDs, Senior Citizen Discount</h1>
+    </div>
+
+    <!-- Input Section -->
+    <div class="card">
+      <h2>Input</h2>
+
+      <h3>Active cart data</h3>
+      <div class="items" id="catalog"></div>
+      <p class="note" id="empty"></p>
+
+      <h3>Customer details</h3>
+      <div class="seg" role="group" aria-label="Customer type">
+        <button id="tPwd" class="on" aria-pressed="true">PWD</button>
+        <button id="tSen" aria-pressed="false">Senior Citizen</button>
+      </div>
+      <div class="fields">
+        <div>
+          <label for="idNo" id="idLbl">PWD ID No. (13 digits)</label>
+          <input id="idNo" inputmode="numeric" maxlength="13" autocomplete="off" placeholder="0000000000000">
+        </div>
+        <div>
+          <label for="nm">Full name</label>
+          <input id="nm" autocomplete="off" placeholder="Juan Dela Cruz">
+        </div>
+        <div>
+          <label for="ex" id="exLbl">Disability</label>
+          <input id="ex" autocomplete="off" placeholder="e.g. Visual impairment">
+        </div>
+      </div>
+      <p class="note" id="msg" role="status"></p>
+
+      <h3>POS action</h3>
+      <div class="gate">
+        <button class="tg" id="pwd" role="switch" aria-checked="false" aria-label="Apply PWDs and Senior Citizen Discount"></button>
+        <div>
+          <b>Apply PWDs and Senior Citizen Discount</b>
+          <small>Click only after visually verifying the physical ID. Details stay on this screen and are not saved.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Process Section -->
+    <div class="card">
+      <h2>Process: Conditional Category Discount Calculation</h2>
+      <ol id="steps"></ol>
+    </div>
+
+    <!-- Output Section -->
+    <div class="card">
+      <h2>Output</h2>
+      <label for="ref">Reference No. (system-generated)</label>
+      <div class="refrow">
+        <input id="ref" class="refin" readonly aria-readonly="true">
+        <button class="btn" id="done">Complete transaction</button>
+      </div>
+      <p class="note" id="refMsg" role="status"></p>
+      <div class="receipt" id="rcpt"></div>
+    </div>
+
+  </div>
+
+  <script src="Script.js"></script>
+</body>
+</html>
